@@ -1,3 +1,3 @@
 # UfroTrack
-Librerias en Jar_files.zip
-Apache Poi con sus dependencias correspondientes
+
+https://trello.com/b/Ww8NZu62/ufrotrack
