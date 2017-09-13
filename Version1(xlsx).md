@@ -4,42 +4,44 @@
 
 package UfroTrack;
 
+package UfroTrack;
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Iterator;
 
-import org.apache.poi.hssf.usermodel.HSSFCell;
-import org.apache.poi.hssf.usermodel.HSSFRow;
-import org.apache.poi.hssf.usermodel.HSSFSheet;
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.xssf.usermodel.XSSFCell;
+import org.apache.poi.xssf.usermodel.XSSFRow;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class HorarioAlumno {
     public static void readXLSFile() throws IOException
     {
-		InputStream ExcelFileToRead = new FileInputStream("C:/Users/rvale/Downloads/horario_academico.xls");
-		HSSFWorkbook wb = new HSSFWorkbook(ExcelFileToRead);
+		InputStream ExcelFileToRead = new FileInputStream("C:/Users/rvale/Downloads/horario_academico.xls.xlsx");
+		XSSFWorkbook wb = new XSSFWorkbook(ExcelFileToRead);
 
-		HSSFSheet sheet=wb.getSheetAt(0);
-		HSSFRow row; 
-		HSSFCell cell;
+		XSSFSheet sheet=wb.getSheetAt(0);
+		XSSFRow row; 
+		XSSFCell cell;
 
 		Iterator rows = sheet.rowIterator();
 
 		while (rows.hasNext())
 		{
-			row=(HSSFRow) rows.next();
+			row=(XSSFRow) rows.next();
 			Iterator cells = row.cellIterator();
 			
 			while (cells.hasNext())
 			{
-				cell=(HSSFCell) cells.next();
+				cell=(XSSFCell) cells.next();
 		
                             switch (cell.getCellType()) {
-                                case HSSFCell.CELL_TYPE_STRING:
+                                case XSSFCell.CELL_TYPE_STRING:
                                     System.out.print(cell.getStringCellValue()+" ");
                                     break;
-                                case HSSFCell.CELL_TYPE_NUMERIC:
+                                case XSSFCell.CELL_TYPE_NUMERIC:
                                     System.out.print(cell.getNumericCellValue()+" ");
                                     break;
                             //U Can Handel Boolean, Formula, Errors
@@ -47,7 +49,7 @@ public class HorarioAlumno {
                                     break;
                             }
 			}
-			System.out.println();
+
 		}
 	
 	}
@@ -58,4 +60,3 @@ public class HorarioAlumno {
 		readXLSFile();
 }
 }
-
