@@ -52,36 +52,7 @@ public class HorarioAlumno {
 	
 	}
 	
-	public static void writeXLSFile() throws IOException {
-		
-		String excelFileName = "C:/Users/tarro/Desktop/PROGRA/horario_academico.xls";	//ruta excel
-
-		String sheetName = "Sheet1";													//nombre sheet
-
-		HSSFWorkbook wb = new HSSFWorkbook();
-		HSSFSheet sheet = wb.createSheet(sheetName) ;
-
-		//iterating r number of rows
-		for (int r=0;r < 5; r++ )
-		{
-			HSSFRow row = sheet.createRow(r);
 	
-			//iterating c number of columns
-			for (int c=0;c < 5; c++ )
-			{
-				HSSFCell cell = row.createCell(c);
-				
-				cell.setCellValue("Cell "+r+" "+c); 									//Aca se soobrescribe la celda
-			}
-		}
-		
-		FileOutputStream fileOut = new FileOutputStream(excelFileName);
-		
-		//write this workbook to an Outputstream.
-		wb.write(fileOut);
-		fileOut.flush();
-		fileOut.close();
-	}
 	
 	
 
