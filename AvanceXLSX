@@ -1,74 +1,28 @@
 package UfroTrack;
 
 import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.Iterator;
 
-import org.apache.poi.hssf.usermodel.HSSFCell;
-import org.apache.poi.hssf.usermodel.HSSFRow;
-import org.apache.poi.hssf.usermodel.HSSFSheet;
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-
+import org.apache.poi.xssf.usermodel.XSSFCell;
+import org.apache.poi.xssf.usermodel.XSSFRow;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class HorarioAlumno {
-
-	public static void readXLSFile() throws IOException
-	{
-		InputStream ExcelFileToRead = new FileInputStream("C:/Users/tarro/Desktop/PROGRA/horario_academico.xls");
-		HSSFWorkbook wb = new HSSFWorkbook(ExcelFileToRead);
-
-		HSSFSheet sheet=wb.getSheetAt(0);
-		HSSFRow row; 
-		HSSFCell cell;
-
-		Iterator rows = sheet.rowIterator();
-
-		while (rows.hasNext())
-		{
-			row=(HSSFRow) rows.next();
-			Iterator cells = row.cellIterator();
-			
-			while (cells.hasNext())
-			{
-				cell=(HSSFCell) cells.next();
-		
-				if (cell.getCellType() == HSSFCell.CELL_TYPE_STRING)
-				{
-					System.out.print(cell.getStringCellValue()+" ");
-				}
-				else if(cell.getCellType() == HSSFCell.CELL_TYPE_NUMERIC)
-				{
-					System.out.print(cell.getNumericCellValue()+" ");
-				}
-				else
-				{
-					//U Can Handel Boolean, Formula, Errors
-				}
-			}
-			System.out.println();
-		}
+	private String[][] value = null;
 	
+	public HorarioAlumno() {
+		xlsxToArray();
 	}
 	
-	
-	
-	
+   public static void main(String[] args) {
+       HorarioAlumno horario = new HorarioAlumno();
+       System.out.println(horario.tomarCelda(1,1));
+   }
 
-	public static void main(String[] args) throws IOException {
-		
-		writeXLSFile();
-		readXLSFile();
 
-	}
-	
-	   public String tomarCelda(int x, int y) {
+   private void xlsxToArray() {
        XSSFRow row;
        XSSFCell cell;
-       String[][] value = null;
-       double[][] nums = null;
-
        try {
            FileInputStream inputStream = new FileInputStream("C:/Users/tarro/Desktop/PROGRA/horario_academico.xlsx");
            XSSFWorkbook workbook = new XSSFWorkbook(inputStream);
@@ -94,7 +48,6 @@ public class HorarioAlumno {
                    if (row != null) {
                        for (int c = 0; c < cells; c++) {
                            cell = row.getCell(c);
-                           nums = new double[rows][cells];
 
                            if (cell != null) {
 
@@ -132,7 +85,10 @@ public class HorarioAlumno {
     } catch (Exception e) {
         e.printStackTrace();
     }
-       return value[y][x];
   }
-
+   
+   public String tomarCelda (int x, int y) {
+	   return value [y][x];
+   }
+   
 }
