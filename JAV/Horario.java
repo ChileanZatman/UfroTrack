@@ -90,11 +90,13 @@ abstract class Horario{
    }
    
    protected void ocurrencias(String palabraBuscada) { // guarda las posiciones de las ocurrencias de la busqueda.
+	   int count=0;
 	   	for(int y = 6 ; y<(this.excell.length);y++) {
 	   		for(int x=1;x<(this.excell[0].length);x++) {
 	   			if (this.tomarCelda(x,y).contains(palabraBuscada)) {
-	   				this.posicion[x-1][x-1]=x;
-	   				this.posicion[x-1][x]=y;
+	   				count++;
+	   				this.posicion[count][count]=x;
+	   				this.posicion[count][count+1]=y;
 	   			}
 	   		}
 	   	}
