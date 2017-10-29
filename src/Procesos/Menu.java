@@ -6,7 +6,7 @@ public class Menu
 {
 
 	InfoModulo vInfo;
-	Inicio2 vInicio;
+	Inicio vInicio;
 	ResultadoBusqueda vBusqueda;
 
 }
