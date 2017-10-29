@@ -1,30 +1,31 @@
-package UfroTrack;
-
-import java.io.FileInputStream;
+package Procesos;
 
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-
-public class HorarioAlumno {
-	private String[][] value = null;
+import Archivos.GestorArchivo;
+import java.io.FileInputStream;
+abstract class Horario{
+	private FileInputStream inputStream;
+	private String[][] excell;
+	public int posicion[][];
+        private GestorArchivo gestor;
 	
-	public HorarioAlumno() {
-		xlsxToArray();
+	public Horario() {
+                GestorArchivo gestor = new GestorArchivo();
+		this.posicion = new int [10][10];
+		this.excell = null;
 	}
-	
-   public static void main(String[] args) {
-       HorarioAlumno horario = new HorarioAlumno();
-       System.out.println(horario.tomarCelda(1,1));
-   }
 
-
-   private void xlsxToArray() {
+   protected void xlsxToArray(FileInputStream input) {
+       //el input ingresado, se obtiene de la clase GestorArchivo
+       
+       
+       inputStream = input;
        XSSFRow row;
        XSSFCell cell;
        try {
-           FileInputStream inputStream = new FileInputStream("C:/Users/tarro/Desktop/PROGRA/horario_academico.xlsx");
            XSSFWorkbook workbook = new XSSFWorkbook(inputStream);
 
            // get sheet number
@@ -41,7 +42,7 @@ public class HorarioAlumno {
                // get number of cell from row
                int cells = sheet.getRow(cn).getPhysicalNumberOfCells();
 
-               value = new String[rows][cells];
+               excell = new String[rows][cells];
      
                for (int r = 0; r < rows; r++) {
                    row = sheet.getRow(r); // bring row
@@ -54,25 +55,25 @@ public class HorarioAlumno {
                                switch (cell.getCellType()) {
 
                                case XSSFCell.CELL_TYPE_FORMULA:
-                                   value[r][c] = cell.getCellFormula();
+                                   excell[r][c] = cell.getCellFormula();
                                    break;
 
                                case XSSFCell.CELL_TYPE_NUMERIC:
-                                   value[r][c] = ""
+                                   excell[r][c] = ""
                                         + cell.getNumericCellValue();
                                    break;
 
                                case XSSFCell.CELL_TYPE_STRING:
-                                   value[r][c] = ""
+                                   excell[r][c] = ""
                                         + cell.getStringCellValue();
                                    break;
 
                                case XSSFCell.CELL_TYPE_BLANK:
-                                  value[r][c] = "[BLANK]";
+                                  excell[r][c] = "[BLANK]";
                                   break;
 
                                case XSSFCell.CELL_TYPE_ERROR:
-                                  value[r][c] = ""+cell.getErrorCellValue();
+                                  excell[r][c] = ""+cell.getErrorCellValue();
                                 break;
                             default:
                                }
@@ -87,8 +88,36 @@ public class HorarioAlumno {
     }
   }
    
-   public String tomarCelda (int x, int y) {
-	   return value [y][x];
+   protected String tomarCelda (int x, int y) {
+	   return excell [y][x];
    }
+   
+   protected void ocurrencias(String palabraBuscada) { // guarda las posiciones de las ocurrencias de la busqueda.
+	   int count=0;
+	   	for(int y = 6 ; y<(this.excell.length);y++) {
+	   		for(int x=1;x<(this.excell[0].length);x++) {
+	   			if (this.tomarCelda(x,y).contains(palabraBuscada)) {
+	   				count++;
+	   				this.posicion[count][count]=x;
+	   				this.posicion[count][count+1]=y;
+	   			}
+	   		}
+	   	}
+   }
+   public void imprimirPosicion() {
+	   for (int y=0;y<this.posicion.length;y++) {
+		   for(int x=0;x<this.posicion.length;x++) {
+			   if(this.posicion[x][y]!=0) {
+				   System.out.println(x+":"+y+"::"+this.posicion[x][y]);
+			   }
+		   }
+	   }
+   }
+   
+   public void devolverCeldas() {
+	   
+   }
+
+   
    
 }
