@@ -44,7 +44,7 @@ public class GuiBotones  extends JFrame implements ActionListener {
         super("UfroTrack");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//finaliza el programa cuando se da click en la X
         this.setSize(1000, 500);//configurando tamaño de la ventana
-        
+        this.setResizable(false);
         //Labels
         labelClase = new JLabel("Rut");
         labelClase.setText("Rut");
