@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package proyectoventana;
+package Ventanas;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -30,7 +30,7 @@ import javax.swing.text.DocumentFilter;
  *
  * @author sebas
  */
-public class GuiBotones  extends JFrame implements ActionListener {
+public class Inicio  extends JFrame implements ActionListener {
     
  private JLabel labelClase;
  private JTextField textFieldRut, textFieldBuscar, textFieldNombre;
@@ -355,6 +355,14 @@ public class GuiBotones  extends JFrame implements ActionListener {
         
         
         
+    }
+    public static void main(String args[]) {
+       
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new Inicio().setVisible(true);
+            }
+        });
     }
     @Override
     public void actionPerformed(ActionEvent ae) {
