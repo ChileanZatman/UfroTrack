@@ -15,9 +15,9 @@ public class InfoModulo extends JFrame implements ActionListener {
     public InfoModulo(){
         
     
-        super("UfroTrack");
+       super("UfroTrack");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setSize(600, 600);
+        this.setSize(500, 600);
         
         labelAsignatura = new JLabel("Codigo asignatura:");
         labelAsignatura.setText("Codigo asignatura:");
@@ -38,7 +38,7 @@ public class InfoModulo extends JFrame implements ActionListener {
         
         
         bt1 = new JButton("Volver");
-        bt1.setBounds(450, 10, 100, 25);
+        bt1.setBounds(340, 10, 100, 25);
         this.add(bt1);
         setLayout(null);
         bt1.addActionListener(this);
