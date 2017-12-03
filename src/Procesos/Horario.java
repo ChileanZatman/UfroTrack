@@ -6,15 +6,15 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import Archivos.GestorArchivo;
 import java.io.FileInputStream;
+
 abstract class Horario{
+	
 	private FileInputStream inputStream;
-	private String[][] excell;
-	public int posicion[][];
-        private GestorArchivo gestor;
+	protected String[][] excell;
+    private GestorArchivo gestor;
 	
 	public Horario() {
-                GestorArchivo gestor = new GestorArchivo();
-		this.posicion = new int [10][10];
+        GestorArchivo gestor = new GestorArchivo();
 		this.excell = null;
 	}
 
@@ -91,33 +91,5 @@ abstract class Horario{
    protected String tomarCelda (int x, int y) {
 	   return excell [y][x];
    }
-   
-   protected void ocurrencias(String palabraBuscada) { // guarda las posiciones de las ocurrencias de la busqueda.
-	   int count=0;
-	   	for(int y = 6 ; y<(this.excell.length);y++) {
-	   		for(int x=1;x<(this.excell[0].length);x++) {
-	   			if (this.tomarCelda(x,y).contains(palabraBuscada)) {
-	   				count++;
-	   				this.posicion[count][count]=x;
-	   				this.posicion[count][count+1]=y;
-	   			}
-	   		}
-	   	}
-   }
-   public void imprimirPosicion() {
-	   for (int y=0;y<this.posicion.length;y++) {
-		   for(int x=0;x<this.posicion.length;x++) {
-			   if(this.posicion[x][y]!=0) {
-				   System.out.println(x+":"+y+"::"+this.posicion[x][y]);
-			   }
-		   }
-	   }
-   }
-   
-   public void devolverCeldas() {
-	   
-   }
 
-   
-   
 }
