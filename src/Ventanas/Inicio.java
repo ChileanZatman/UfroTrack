@@ -19,7 +19,7 @@ public class Inicio  extends JFrame implements ActionListener {
  private JComboBox comboCategoria;
  private JButton bt1, bt2, bt3,  bt4,  bt5, bt6, bt7, bt8, bt9, bt10, bt11, bt12, bt13, bt14, bt15, bt16, bt17,
                  bt18, bt19,bt20, bt21, bt22, bt23, bt24, bt25, bt26,bt27, bt28, bt29, bt30, bt31, bt32, bt33,
-                 bt34, bt35, bt36, bt37, bt38, bt39, bt40, bt41,bt42,bt43,bt44,bt45,bt46,bt47,bt48,bt49,bt50;
+                 bt34, bt35, bt36, bt37, bt38, bt39, bt40, bt41,bt42,bt43,bt44,bt45,bt46,bt47,bt48,bt49,bt50, botonBuscar;
  
     public Inicio() {
         
@@ -335,7 +335,11 @@ public class Inicio  extends JFrame implements ActionListener {
         setLayout(null);
         bt50.addActionListener(this);
         
-        
+        botonBuscar = new JButton("Buscar");
+        botonBuscar.setBounds(600, 135, 100, 25);
+        this.add(botonBuscar);
+        setLayout(null);
+        botonBuscar.addActionListener(this);
         
     }
     public static void main(String args[]) {
