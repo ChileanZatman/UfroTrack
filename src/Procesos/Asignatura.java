@@ -2,9 +2,9 @@ package Procesos;
 
 
 public class Asignatura {
-    private String profesor,codigo,nombre;
-    private String[]horarios;
-    private String[]salas;
+    private final String profesor,codigo,nombre;
+    private final String[]horarios;
+    private final String[]salas;
     public Asignatura(String prof, String cod, String nom, String[]hor, String[]sal){
         this.profesor =prof;
         this.codigo = cod;
