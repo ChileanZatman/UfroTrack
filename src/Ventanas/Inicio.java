@@ -352,7 +352,157 @@ public class Inicio  extends JFrame implements ActionListener {
     }
     @Override
     public void actionPerformed(ActionEvent ae) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       if (ae.getSource() == bt1) {
+
+        }
+        if (ae.getSource() == bt2) {
+
+        }
+        if (ae.getSource() == bt3) {
+
+        }
+        if (ae.getSource() == bt4) {
+
+        }
+        if (ae.getSource() == bt5) {
+
+        }
+        if (ae.getSource() == bt6) {
+
+        }
+        if (ae.getSource() == bt7) {
+
+        }
+        if (ae.getSource() == bt8) {
+
+        }
+        if (ae.getSource() == bt9) {
+
+        }
+        if (ae.getSource() == bt10) {
+
+        }
+        if (ae.getSource() == bt11) {
+
+        }
+        if (ae.getSource() == bt12) {
+
+        }
+        if (ae.getSource() == bt13) {
+
+        }
+        if (ae.getSource() == bt14) {
+
+        }
+        if (ae.getSource() == bt15) {
+
+        }
+        if (ae.getSource() == bt16) {
+
+        }
+        if (ae.getSource() == bt17) {
+
+        }
+        if (ae.getSource() == bt18) {
+
+        }
+        if (ae.getSource() == bt19) {
+
+        }
+        if (ae.getSource() == bt20) {
+
+        }
+        if (ae.getSource() == bt21) {
+
+        }
+        if (ae.getSource() == bt22) {
+
+        }
+        if (ae.getSource() == bt23) {
+
+        }
+        if (ae.getSource() == bt24) {
+
+        }
+        if (ae.getSource() == bt25) {
+
+        }
+        if (ae.getSource() == bt26) {
+
+        }
+        if (ae.getSource() == bt27) {
+
+        }
+        if (ae.getSource() == bt28) {
+
+        }
+        if (ae.getSource() == bt29) {
+
+        }
+        if (ae.getSource() == bt30) {
+
+        }
+        if (ae.getSource() == bt31) {
+
+        }
+        if (ae.getSource() == bt32) {
+
+        }
+        if (ae.getSource() == bt33) {
+
+        }
+        if (ae.getSource() == bt34) {
+
+        }
+        if (ae.getSource() == bt35) {
+
+        }
+        if (ae.getSource() == bt36) {
+
+        }
+        if (ae.getSource() == bt37) {
+
+        }
+        if (ae.getSource() == bt38) {
+
+        }
+        if (ae.getSource() == bt39) {
+
+        }
+        if (ae.getSource() == bt40) {
+
+        }
+        if (ae.getSource() == bt41) {
+
+        }
+        if (ae.getSource() == bt42) {
+
+        }
+        if (ae.getSource() == bt43) {
+
+        }
+        if (ae.getSource() == bt44) {
+
+        }
+        if (ae.getSource() == bt45) {
+
+        }
+        if (ae.getSource() == bt46) {
+
+        }
+        if (ae.getSource() == bt47) {
+
+        }
+        if (ae.getSource() == bt48) {
+
+        }
+        if (ae.getSource() == bt49) {
+
+        }
+        if (ae.getSource() == bt50) {
+
+        }
+        
     }
     
 }
