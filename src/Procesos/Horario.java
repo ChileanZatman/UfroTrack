@@ -4,25 +4,22 @@ import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import Archivos.GestorArchivo;
 import java.io.FileInputStream;
 
 abstract class Horario{
 	
-	private FileInputStream inputStream;
+	protected FileInputStream inputStream;
 	protected String[][] excell;
-    private GestorArchivo gestor;
 	
 	public Horario() {
-        GestorArchivo gestor = new GestorArchivo();
-		this.excell = null;
+        
+		;
 	}
 
-   protected void xlsxToArray(FileInputStream input) {
+   protected void xlsxToArray() {
        //el input ingresado, se obtiene de la clase GestorArchivo
        
        
-       inputStream = input;
        XSSFRow row;
        XSSFCell cell;
        try {

@@ -14,12 +14,16 @@ public class ResultadoBusqueda extends JFrame implements ActionListener {
     private final JList list;
     DefaultListModel model = new DefaultListModel();
     private JButton botonVolver, botonSeleccionar;
-    public ResultadoBusqueda() {
-
+    private InfoModulo info;
+    
+    public ResultadoBusqueda(boolean criterio, String palabra) {
         super("Resultado");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(500, 650);
-
+        
+        HorarioCarrera obj = new HorarioCarrera();
+        resultados = obj.listaAsignaturas(palabra, criterio);
+        
         list = new JList(model);
         list.setBounds(15, 30, 450, 500);
         this.setLayout(null);
@@ -42,10 +46,10 @@ public class ResultadoBusqueda extends JFrame implements ActionListener {
     }
 
     @Override
-   public void actionPerformed(ActionEvent ae) {
+    public void actionPerformed(ActionEvent ae) {
         if(ae.getSource()== botonVolver){
             this.setVisible(false);
-           Inicio regreso = new Inicio();
+            Inicio regreso = new Inicio();
             regreso.setVisible(true);
         }
         if(ae.getSource()==botonSeleccionar){

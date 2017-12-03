@@ -1,5 +1,6 @@
 package Procesos;
 
+import Archivos.GestorArchivo;
 import java.util.ArrayList;
 
 public class HorarioCarrera extends Horario{
@@ -9,6 +10,11 @@ public class HorarioCarrera extends Horario{
 	private int cantidadModulos;
 	
 	public HorarioCarrera() {
+            //cantidadClases = 0;
+            //cantidadModulos = 0;
+            GestorArchivo gestor = new GestorArchivo();
+            super.inputStream = gestor.getInputCarrera();
+            super.xlsxToArray();
 	}
 	
 	   private void ocurrencias(String palabraBuscada) { //determina la cantidad de ocurrencias
@@ -37,8 +43,9 @@ public class HorarioCarrera extends Horario{
 		   	}
 	   }
 	   
-	   private void cantidadClases(String palabraBuscada, boolean tipoBusqueda) {
-		   if(tipoBusqueda) {	//si busque por codigo
+	   private void setCantidadClases(String palabraBuscada, boolean tipoBusqueda) {
+		   System.out.println(cantidadClases);
+                   if(tipoBusqueda) {	//si busque por codigo
 			   this.cantidadClases=Integer.parseInt(this.tomarCelda(this.posicion[0][0],this.posicion[0][1]+5));
 		   }
 		   else {				//si busque por profesor
@@ -80,7 +87,8 @@ public class HorarioCarrera extends Horario{
 	   
 	   
 	   public ArrayList<Asignatura> listaAsignaturas (String palabraBuscada, boolean tipoBusqueda) {
-		  this.cantidadClases(palabraBuscada, tipoBusqueda);
+		  
+                  this.setCantidadClases(palabraBuscada, tipoBusqueda);
 		  this.cantidadModulos = (this.posicion.length/cantidadClases);
 		  
 		  ArrayList <Asignatura> listaAsignatura = new ArrayList <Asignatura>();

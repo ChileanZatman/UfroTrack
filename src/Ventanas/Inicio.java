@@ -1,6 +1,5 @@
+
 package Ventanas;
-
-
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -13,13 +12,13 @@ import javax.swing.*;
  * @author sebas
  */
 public class Inicio  extends JFrame implements ActionListener {
-    
+ 
  private JLabel labelClase;
  private JTextField textFieldRut, textFieldBuscar, textFieldNombre;
  private JComboBox comboCategoria;
- private JButton bt1, bt2, bt3,  bt4,  bt5, bt6, bt7, bt8, bt9, bt10, bt11, bt12, bt13, bt14, bt15, bt16, bt17,
+ private JButton botonBuscar, bt1, bt2, bt3,  bt4,  bt5, bt6, bt7, bt8, bt9, bt10, bt11, bt12, bt13, bt14, bt15, bt16, bt17,
                  bt18, bt19,bt20, bt21, bt22, bt23, bt24, bt25, bt26,bt27, bt28, bt29, bt30, bt31, bt32, bt33,
-                 bt34, bt35, bt36, bt37, bt38, bt39, bt40, bt41,bt42,bt43,bt44,bt45,bt46,bt47,bt48,bt49,bt50, botonBuscar;
+                 bt34, bt35, bt36, bt37, bt38, bt39, bt40, bt41,bt42,bt43,bt44,bt45,bt46,bt47,bt48,bt49,bt50;
  
     public Inicio() {
         
@@ -77,7 +76,8 @@ public class Inicio  extends JFrame implements ActionListener {
         String[] opc2 = {};
         comboCategoria = new JComboBox(opc2);
         comboCategoria.setBounds(700, 110, 100, 25);
-        comboCategoria.addItem("Categoria");
+        comboCategoria.addItem("Codigo");
+        comboCategoria.addItem("Profesor");
         comboCategoria.addActionListener(this);
         this.setLayout(null);
         this.add(comboCategoria);
@@ -341,6 +341,8 @@ public class Inicio  extends JFrame implements ActionListener {
         setLayout(null);
         botonBuscar.addActionListener(this);
         
+        
+        
     }
     public static void main(String args[]) {
        
@@ -352,7 +354,20 @@ public class Inicio  extends JFrame implements ActionListener {
     }
     @Override
     public void actionPerformed(ActionEvent ae) {
-       if (ae.getSource() == bt1) {
+        if(ae.getSource() == botonBuscar ){
+            if(comboCategoria.getSelectedItem()=="Codigo"){
+                ResultadoBusqueda ventana = new ResultadoBusqueda(true,textFieldBuscar.getText());
+                ventana.setVisible(true);
+                setVisible(false);
+            }
+            else if(comboCategoria.getSelectedItem()=="Profesor"){
+                ResultadoBusqueda ventana = new ResultadoBusqueda(false,textFieldBuscar.getText());
+                ventana.setVisible(true);
+                setVisible(false);
+            }
+            
+        }
+        if (ae.getSource() == bt1) {
 
         }
         if (ae.getSource() == bt2) {
@@ -502,9 +517,6 @@ public class Inicio  extends JFrame implements ActionListener {
         if (ae.getSource() == bt50) {
 
         }
-        
     }
-    
-}
     
 }
