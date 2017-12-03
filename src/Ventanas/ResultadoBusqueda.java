@@ -1,11 +1,17 @@
 package Ventanas;
+import java.util.ArrayList;
+import Procesos.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.*;
+import javax.swing.DefaultListModel;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JList;
+
 
 public class ResultadoBusqueda extends JFrame implements ActionListener {
-
-    private JList resultados;
+    private ArrayList<Asignatura>resultados;
+    private final JList list;
     DefaultListModel model = new DefaultListModel();
     private JButton botonVolver, botonSeleccionar;
     public ResultadoBusqueda() {
@@ -14,10 +20,10 @@ public class ResultadoBusqueda extends JFrame implements ActionListener {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(500, 650);
 
-        resultados = new JList();
-        resultados.setBounds(15, 30, 450, 500);
+        list = new JList(model);
+        list.setBounds(15, 30, 450, 500);
         this.setLayout(null);
-        this.add(resultados);
+        this.add(list);
         
         botonVolver = new JButton("Volver");
         botonVolver.setBounds(15, 550, 150, 25);
@@ -43,5 +49,13 @@ public class ResultadoBusqueda extends JFrame implements ActionListener {
             regreso.setVisible(true);
         }
     }
+    public void llenarLista(){
+    for(int i=0;i<resultados.size();i++){
+        String texto =resultados.get(i).getCodigo()+" "+resultados.get(i).getNombre()+"  "+resultados.get(i).getProfesor();
+        model.addElement(texto);
+    }
+    }
+    
+    
 
 }
