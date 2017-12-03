@@ -8,7 +8,6 @@ public class ResultadoBusqueda extends JFrame implements ActionListener {
     private JList resultados;
     DefaultListModel model = new DefaultListModel();
     private JButton butonVolver, botonSeleccionar;
-    GuiBotones regreso;
     public ResultadoBusqueda() {
 
         super("Resultado");
@@ -40,7 +39,7 @@ public class ResultadoBusqueda extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent ae) {
         if(ae.getSource()== butonVolver){
             this.setVisible(false);
-            regreso = new GuiBotones();
+            Inicio regreso = new Inicio();
             regreso.setVisible(true);
         }
     }
