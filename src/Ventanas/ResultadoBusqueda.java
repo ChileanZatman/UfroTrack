@@ -42,11 +42,16 @@ public class ResultadoBusqueda extends JFrame implements ActionListener {
     }
 
     @Override
-    public void actionPerformed(ActionEvent ae) {
+   public void actionPerformed(ActionEvent ae) {
         if(ae.getSource()== botonVolver){
             this.setVisible(false);
            Inicio regreso = new Inicio();
             regreso.setVisible(true);
+        }
+        if(ae.getSource()==botonSeleccionar){
+            info.setVisible(false);
+            info = new InfoModulo(resultados.get(list.getSelectedIndex()));
+            info.setVisible(true);
         }
     }
     public void llenarLista(){
