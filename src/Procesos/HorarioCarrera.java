@@ -10,17 +10,15 @@ public class HorarioCarrera extends Horario{
 	private int cantidadModulos;
 	
 	public HorarioCarrera() {
-            //cantidadClases = 0;
-            //cantidadModulos = 0;
             GestorArchivo gestor = new GestorArchivo();
             super.inputStream = gestor.getInputCarrera();
             super.xlsxToArray();
 	}
 	
-	   private void ocurrencias(String palabraBuscada) { //determina la cantidad de ocurrencias
+	   private void ocurrencias (String palabraBuscada) { //determina la cantidad de ocurrencias
 		   int count=0;
-		   	for(int y = 0 ; y<(this.excell.length);y++) {
-		   		for(int x=1;x<(this.excell[0].length);x++) {
+		   	for(int y = 0; y<(this.excell.length-1);y++) {
+		   		for(int x=0;x<(this.excell[0].length);x++) {
 		   			if (this.tomarCelda(x,y).contains(palabraBuscada)) {
 		   				count++;
 		   			}
@@ -44,9 +42,12 @@ public class HorarioCarrera extends Horario{
 	   }
 	   
 	   private void setCantidadClases(String palabraBuscada, boolean tipoBusqueda) {
-		   System.out.println(cantidadClases);
+		   System.out.println(this.posicion[0][0]);
+    	   System.out.println(this.posicion[0][1]+5);
+    	   System.out.println(this.tomarCelda(this.posicion[0][0],this.posicion[0][1]+5));
                    if(tipoBusqueda) {	//si busque por codigo
 			   this.cantidadClases=Integer.parseInt(this.tomarCelda(this.posicion[0][0],this.posicion[0][1]+5));
+			   
 		   }
 		   else {				//si busque por profesor
 			   this.cantidadClases=Integer.parseInt(this.tomarCelda(this.posicion[0][0],this.posicion[0][1]+2));
@@ -54,7 +55,6 @@ public class HorarioCarrera extends Horario{
 	   }
 	   
 	   private Asignatura asignaturaEncontrada (String palabraBuscada, boolean tipoBusqueda, int modulo) { //true para busqueda por codigo false para profesor
-		   this.ocurrencias(palabraBuscada);
 
 		   String profesor;
 		   String codigo;
@@ -87,8 +87,8 @@ public class HorarioCarrera extends Horario{
 	   
 	   
 	   public ArrayList<Asignatura> listaAsignaturas (String palabraBuscada, boolean tipoBusqueda) {
-		  
-                  this.setCantidadClases(palabraBuscada, tipoBusqueda);
+		  this.ocurrencias(palabraBuscada);
+          this.setCantidadClases(palabraBuscada, tipoBusqueda);
 		  this.cantidadModulos = (this.posicion.length/cantidadClases);
 		  
 		  ArrayList <Asignatura> listaAsignatura = new ArrayList <Asignatura>();
