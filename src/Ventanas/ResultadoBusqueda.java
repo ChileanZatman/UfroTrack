@@ -22,7 +22,7 @@ public class ResultadoBusqueda extends JFrame implements ActionListener {
         this.setSize(500, 650);
         
         HorarioCarrera obj = new HorarioCarrera();
-        resultados = obj.listaAsignaturas(palabra, criterio);
+        resultados = obj.listaAsignaturas(palabra);
         
         list = new JList(model);
         list.setBounds(15, 30, 450, 500);
