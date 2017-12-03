@@ -55,7 +55,9 @@ public class InfoModulo extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent ae) {
-       
+      if(ae.getSource()==bt1){
+           setVisible(false);
+       } 
     }
 }
 }
