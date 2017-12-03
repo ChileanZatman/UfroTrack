@@ -15,7 +15,13 @@ public class Asignatura {
         this.salas=sal;
     
     }
-    
+    public String toHorario(int index){
+        String txt = null;
+        String[]datos = horarios.get(index).split("|");
+        String[]periodos = datos[1].split(",");
+        txt = "Dia:  "+datos[0]+"\n"+"Periodos:  "+periodos[0]+" y "+periodos[1];
+        return txt;
+    }
     
     public String getNombre(){
         return this.nombre;
@@ -26,11 +32,15 @@ public class Asignatura {
     public String getCodigo(){
         return this.codigo;
     }
-    public ArrayList<String> getHorarios(){
-        return this.horarios;
-    }
-    public ArrayList<String> getSalas(){
-        return this.salas;
+    public String getHorarios(){
+        String texto = null;
+        for (int i = 0; i < this.horarios.size(); i++) {
+              if(texto==null) texto =salas.get(i)+""+"\n"+toHorario(i);
+              else{ texto= texto+salas.get(i)+"\n"+toHorario(i);
+              }
+              
+              }
+        return texto;
     }
     
 }
