@@ -1,11 +1,13 @@
 package Procesos;
 
+import java.util.ArrayList;
+
 
 public class Asignatura {
     private final String profesor,codigo,nombre;
-    private final String[]horarios;
-    private final String[]salas;
-    public Asignatura(String prof, String cod, String nom, String[]hor, String[]sal){
+    private final ArrayList<String>horarios;
+    private final ArrayList<String>salas;
+    public Asignatura(String prof, String cod, String nom, ArrayList<String>hor, ArrayList<String>sal){
         this.profesor =prof;
         this.codigo = cod;
         this.nombre = nom;
@@ -13,6 +15,7 @@ public class Asignatura {
         this.salas=sal;
     
     }
+    
     
     public String getNombre(){
         return this.nombre;
@@ -23,10 +26,10 @@ public class Asignatura {
     public String getCodigo(){
         return this.codigo;
     }
-    public String[] getHorarios(){
+    public ArrayList<String> getHorarios(){
         return this.horarios;
     }
-    public String[] getSalas(){
+    public ArrayList<String> getSalas(){
         return this.salas;
     }
     
