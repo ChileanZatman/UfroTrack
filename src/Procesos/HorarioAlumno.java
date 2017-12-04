@@ -29,8 +29,10 @@ public class HorarioAlumno extends Horario{
 			for(int x=1; x<this.excell[0].length; x++) {
 				if(y==19) {			// linea de horario de almuerzo
 					y=y+3;
+					counti=1;
+					this.tablaNombre[counti-1][countj]=this.tomarCelda(x, y);
 				}else if(x!=6){
-					System.out.println("x "+x+" y"+y);
+					//System.out.println("x "+x+" y"+y);
 					this.tablaNombre[counti][countj]=this.tomarCelda(x, y);
 					counti++;
 				}
@@ -43,36 +45,24 @@ public class HorarioAlumno extends Horario{
 	private void llenarSala() {
 		int countj=0;
 		int counti=0;
-		for(int y=8; y<this.excell.length-1; y=y+3) {
-			countj++;
-			for(int x=1; y<this.excell[0].length; x++) {
-				counti++;
-				if(y==19) {
-					countj--;
-					counti--;
-				}else { // linea de horario de almuerzo
-					this.tablaSala[countj][counti]=this.tomarCelda(x, y);
+		
+		for(int y=8; y<this.excell.length; y=y+3) {
+			for(int x=1; x<this.excell[0].length; x++) {
+				if(y==20) {			// linea de horario de almuerzo
+					y=y+3;
+					counti=1;
+					this.tablaSala[counti-1][countj]=this.tomarCelda(x, y);
+				}else if(x!=6){
+					//System.out.println("x "+x+" y"+y);
+					this.tablaSala[counti][countj]=this.tomarCelda(x, y);
+					counti++;
 				}
 			}
+			counti=0;
+			countj++;
 		}
 	}
 	
-	private void llenarCodigo() {
-		int countj=0;
-		int counti=0;
-		for(int y=6; y<this.excell.length-1; y=y+3) {
-			countj++;
-			for(int x=1; y<this.excell[0].length; x++) {
-				counti++;
-				if(y==18) {
-					countj--;
-					counti--;
-				}else { // linea de horario de almuerzo
-					this.tablaCodigo[countj][counti]=this.tomarCelda(x, y);
-				}
-			}
-		}
-	}
 	
 	public String getNombreAlumno() {
 		String nombre=this.tomarCelda(2, 2);
