@@ -38,8 +38,8 @@ public class Inicio  extends JFrame implements ActionListener {
         }
         HorarioAlumno horario =initHorario(gestor);
         //Labels
-        labelClase = new JLabel("Rut");
-        labelClase.setText("Rut");
+        labelClase = new JLabel();
+        labelClase.setText("N° Matricula");
         labelClase.setBounds(580, 10, 100, 25);
         this.add(labelClase);
         labelClase = new JLabel("Nombre");
@@ -70,7 +70,7 @@ public class Inicio  extends JFrame implements ActionListener {
         //TextFields
         textFieldRut = new JTextField();
         textFieldRut.setEditable(false);
-        textFieldRut.setBounds(650, 10, 100, 25);
+        textFieldRut.setBounds(650, 10, 200, 25);
         textFieldRut.setText(horario.getRut());
         this.add(textFieldRut);
         textFieldBuscar = new JTextField();
@@ -79,7 +79,7 @@ public class Inicio  extends JFrame implements ActionListener {
         this.add(textFieldBuscar);
         textFieldNombre = new JTextField();
         textFieldNombre.setEditable(false);
-        textFieldNombre.setBounds(110+60, 10, 100, 25);
+        textFieldNombre.setBounds(110+60, 10, 250, 25);
         textFieldNombre.setText(horario.getNombreAlumno());
         this.add(textFieldNombre);
         
@@ -377,12 +377,18 @@ public class Inicio  extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent ae) {
         if(ae.getSource() == botonBuscar ){
-                ResultadoBusqueda ventana = new ResultadoBusqueda(textFieldBuscar.getText());
+                ResultadoBusqueda ventana = new ResultadoBusqueda(textFieldBuscar.getText().toUpperCase());
                 ventana.setVisible(true);
                 setVisible(false);
             
             
             
+        }
+        if(ae.getSource()== botonCargar){
+            FileChooser();
+            setVisible(false);
+            Inicio ventana = new Inicio();
+            ventana.setVisible(true);
         }
         if (ae.getSource() == bt1) {
 
@@ -569,4 +575,3 @@ public class Inicio  extends JFrame implements ActionListener {
         }
     }
     
-
