@@ -24,10 +24,12 @@ public class ResultadoBusqueda extends JFrame implements ActionListener {
         HorarioCarrera obj = new HorarioCarrera();
         resultados = obj.listaAsignaturas(palabra);
         
-        list = new JList(model);
+        
+        list = new JList();
         list.setBounds(15, 30, 450, 500);
         this.setLayout(null);
         this.add(list);
+        llenarLista();
         
         botonVolver = new JButton("Volver");
         botonVolver.setBounds(15, 550, 150, 25);
@@ -53,16 +55,19 @@ public class ResultadoBusqueda extends JFrame implements ActionListener {
             regreso.setVisible(true);
         }
         if(ae.getSource()==botonSeleccionar){
-            info.setVisible(false);
+            System.out.println(list.getSelectedIndex());
             info = new InfoModulo(resultados.get(list.getSelectedIndex()));
             info.setVisible(true);
         }
     }
     public void llenarLista(){
+        model.removeAllElements();
     for(int i=0;i<resultados.size();i++){
+        
         String texto =resultados.get(i).getCodigo()+" "+resultados.get(i).getNombre()+"  "+resultados.get(i).getProfesor();
         model.addElement(texto);
     }
+        list.setModel(model);
     }
     
     

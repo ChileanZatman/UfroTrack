@@ -13,30 +13,41 @@ public class Asignatura {
         this.nombre = nom;
         this.horarios = hor;
         this.salas=sal;
+        test(getNombre()+""+getCodigo()+""+getProfesor());
+        
+        
     
     }
+    public void test(String x){
+        System.out.println(x);
+    }
     public String toHorario(int index){
+        test(horarios.get(index));
         String txt = null;
         String[]datos = horarios.get(index).split("|");
-        String[]periodos = datos[1].split(",");
-        txt = "Dia:  "+datos[0]+"\n"+"Periodos:  "+periodos[0]+" y "+periodos[1];
+        String[]periodos = datos[2].split(",");
+        txt = "Dia:  "+datos[0]+"\n"+"Periodos: ";
+        for(int i=0; i<periodos.length;i++){
+            txt = txt+ "\n"+"-"+periodos[i];
+        }
         return txt;
     }
     
     public String getNombre(){
-        return this.nombre;
+        return this.nombre+"";
     }
     public String getProfesor(){
-        return this.profesor;
+        return this.profesor+"";
     }
     public String getCodigo(){
-        return this.codigo;
+        return this.codigo+"";
     }
     public String getHorarios(){
         String texto = null;
         for (int i = 0; i < this.horarios.size(); i++) {
               if(texto==null) texto =salas.get(i)+""+"\n"+toHorario(i);
-              else{ texto= texto+salas.get(i)+"\n"+toHorario(i);
+              else if(texto!=null){ 
+                  texto= texto+salas.get(i)+"\n"+toHorario(i);
               }
               
               }
