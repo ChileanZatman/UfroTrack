@@ -17,26 +17,28 @@ public class GestorArchivo {
         dir = Paths.get("src/Archivos");
         file = Paths.get("src/Archivos/ruta.txt");
         carrera = "src/Archivos/Horario_Carrera.xlsx";
-        
-        setLineas();
+        setLinea();
     }
 
     public boolean checkFile() {
-        return Files.exists(dir);
+        return Files.exists(file);
     }
+    
 
     public boolean checkDir() {
         return Files.exists(dir);
     }
 
     public String getAlumno() {
-        setLineas();
+        setLinea();
         return alumno;
     }
 
 
     public FileInputStream getInputAlumno() {
         try {
+            setLinea();
+            System.out.println(alumno);
             inputStream = new FileInputStream(alumno);
 
         } catch (FileNotFoundException e) {
@@ -59,25 +61,35 @@ public class GestorArchivo {
     private void setFile() {
         String texto = alumno;
         try {
-            Files.write(dir, texto.getBytes());
+            Files.write(file, texto.getBytes());
         } catch (IOException e) {
             System.out.println("El archivo no pudo ser guardado");
         }
+        setLinea();
 
     }
+    public void deleteFile(){
+        try{
+        Files.delete(file);
+        }catch(IOException e){
+            System.out.println("Error deleteFile");
+        }
+    }
 
-    private void setLineas() {
+    private void setLinea() {
         try {
-            String texto = new String(Files.readAllBytes(dir));
+            String texto = new String(Files.readAllBytes(file));
+            System.out.println("setLineas texto:"+texto);
             alumno = texto;
         } catch (IOException e) {
         }
     }
 
-    private void setAlumno(String ruta) {
-        alumno = ruta;
+    public void setAlumno(String ruta) {
+        alumno = ruta.replace("\\", "/");
         setFile();
     }
 
     
 }
+
