@@ -16,7 +16,7 @@ import javax.swing.filechooser.FileSystemView;
 
 public class Inicio  extends JFrame implements ActionListener {
         private String [][] tablaNombre;
-        private String [][] tablaCodigo;
+        private String [][] tablaSala;
         private JLabel labelClase;
         private JTextField textFieldRut, textFieldBuscar, textFieldNombre, textFieldRuta;
         private JButton botonBuscar, bt1, bt2, bt3,  bt4,  bt5, bt6, bt7, bt8, bt9, bt10, bt11, bt12, bt13, bt14, bt15, bt16, bt17,
@@ -38,6 +38,7 @@ public class Inicio  extends JFrame implements ActionListener {
         }
         HorarioAlumno horario =initHorario(gestor);
         tablaNombre=horario.getNombre();
+	tablaSala=horario.getSala();
         //Labels
         labelClase = new JLabel("Hora");
         labelClase.setText("Hora");
