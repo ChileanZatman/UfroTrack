@@ -16,7 +16,6 @@ import javax.swing.filechooser.FileSystemView;
 
 public class Inicio  extends JFrame implements ActionListener {
         private String [][] tablaNombre;
-        private String [][] tablaCodigo;
         private JLabel labelClase;
         private JTextField textFieldRut, textFieldBuscar, textFieldNombre, textFieldRuta;
         private JButton botonBuscar, bt1, bt2, bt3,  bt4,  bt5, bt6, bt7, bt8, bt9, bt10, bt11, bt12, bt13, bt14, bt15, bt16, bt17,
@@ -124,7 +123,7 @@ public class Inicio  extends JFrame implements ActionListener {
         this.add(textFieldBuscar);
         textFieldNombre = new JTextField();
         textFieldNombre.setEditable(false);
-        textFieldNombre.setBounds(110+60, 10, 250, 25);
+        textFieldNombre.setBounds(110+60, 10, 300, 25);
         textFieldNombre.setText(horario.getNombreAlumno());
         this.add(textFieldNombre);
         
@@ -408,6 +407,58 @@ public class Inicio  extends JFrame implements ActionListener {
         this.add(botonCargar);
         setLayout(null);
         botonCargar.addActionListener(this);
+	    
+	//ToolTips
+        bt1.setToolTipText(tablaNombre[0][0]);
+        bt2.setToolTipText(tablaNombre[0][1]);
+        bt3.setToolTipText(tablaNombre[0][2]);
+        bt4.setToolTipText(tablaNombre[0][3]);
+        bt5.setToolTipText(tablaNombre[0][4]);
+        bt6.setToolTipText(tablaNombre[0][5]);
+        bt7.setToolTipText(tablaNombre[0][6]);
+        bt8.setToolTipText(tablaNombre[0][7]);
+        bt9.setToolTipText(tablaNombre[0][8]);
+        bt10.setToolTipText(tablaNombre[0][9]);
+        bt11.setToolTipText(tablaNombre[1][0]);
+        bt12.setToolTipText(tablaNombre[1][1]);
+        bt13.setToolTipText(tablaNombre[1][2]);
+        bt14.setToolTipText(tablaNombre[1][3]);
+        bt15.setToolTipText(tablaNombre[1][4]);
+        bt16.setToolTipText(tablaNombre[1][5]);
+        bt17.setToolTipText(tablaNombre[1][6]);
+        bt18.setToolTipText(tablaNombre[1][7]);
+        bt19.setToolTipText(tablaNombre[1][8]);
+        bt20.setToolTipText(tablaNombre[1][9]);
+        bt21.setToolTipText(tablaNombre[2][0]);
+        bt22.setToolTipText(tablaNombre[2][1]);
+        bt23.setToolTipText(tablaNombre[2][2]);
+        bt24.setToolTipText(tablaNombre[2][3]);
+        bt25.setToolTipText(tablaNombre[2][4]);
+        bt26.setToolTipText(tablaNombre[2][5]);
+        bt27.setToolTipText(tablaNombre[2][6]);
+        bt28.setToolTipText(tablaNombre[2][7]);
+        bt29.setToolTipText(tablaNombre[2][8]);
+        bt30.setToolTipText(tablaNombre[2][9]);
+        bt31.setToolTipText(tablaNombre[3][0]);
+        bt32.setToolTipText(tablaNombre[3][1]);
+        bt33.setToolTipText(tablaNombre[3][2]);
+        bt34.setToolTipText(tablaNombre[3][3]);
+        bt35.setToolTipText(tablaNombre[3][4]);
+        bt36.setToolTipText(tablaNombre[3][5]);
+        bt37.setToolTipText(tablaNombre[3][6]);
+        bt38.setToolTipText(tablaNombre[3][7]);
+        bt39.setToolTipText(tablaNombre[3][8]);
+        bt40.setToolTipText(tablaNombre[3][9]);
+        bt41.setToolTipText(tablaNombre[4][0]);
+        bt42.setToolTipText(tablaNombre[4][1]);
+        bt43.setToolTipText(tablaNombre[4][2]);
+        bt44.setToolTipText(tablaNombre[4][3]);
+        bt45.setToolTipText(tablaNombre[4][4]);
+        bt46.setToolTipText(tablaNombre[4][5]);
+        bt47.setToolTipText(tablaNombre[4][6]);
+        bt48.setToolTipText(tablaNombre[4][7]);
+        bt49.setToolTipText(tablaNombre[4][8]);
+        bt50.setToolTipText(tablaNombre[4][9]);
         
         
     }
@@ -432,8 +483,8 @@ public class Inicio  extends JFrame implements ActionListener {
         if(ae.getSource()== botonCargar){
             FileChooser();
             setVisible(false);
-            Inicio ventana = new Inicio();
-            ventana.setVisible(true);
+            JOptionPane.showMessageDialog(null, "Abra la aplicacion nuevamente para aplicar cambios");
+            System.exit(0);
         }
         if (ae.getSource() == bt1) {
             setVisible(false);
@@ -726,5 +777,3 @@ public class Inicio  extends JFrame implements ActionListener {
             return horario;
         }
     }
-    
-
