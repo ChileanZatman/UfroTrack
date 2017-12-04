@@ -31,6 +31,11 @@ public class HorarioCarrera extends Horario{
 		}
 	}
 	
+	public boolean encuentro(String palabraBuscada) {
+		this.ocurrencias(palabraBuscada);
+		return this.encuentro;
+	}
+	
 	private void separarAsignaturas (String palabraBuscada) { //true=codigo / false=profesor
 		this.ocurrencias(palabraBuscada);
 		int count=0;
