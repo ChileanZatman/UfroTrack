@@ -9,13 +9,15 @@ public class HorarioCarrera extends Horario{
 	
 	private ArrayList <Integer> posicion;
 	private ArrayList <Integer> cantidadAparicionPorModulo;
+	private boolean encuentro;
 
 	public HorarioCarrera() {
-		this.posicion = new ArrayList<Integer>();
-		this.cantidadAparicionPorModulo = new ArrayList<Integer>();
         GestorArchivo gestor = new GestorArchivo();
         super.inputStream = gestor.getInputCarrera();
         super.xlsxToArray();
+        this.encuentro=false;
+        this.posicion = new ArrayList<Integer>();
+		this.cantidadAparicionPorModulo = new ArrayList<Integer>();
 	}
 	
 	private void ocurrencias (String palabraBuscada) {
@@ -23,6 +25,7 @@ public class HorarioCarrera extends Horario{
 			for(int x=1; x<excell[0].length;x++) {
 				if (this.tomarCelda(x,y).equalsIgnoreCase(palabraBuscada)) {
 					this.posicion.add(x);
+					this.encuentro=true;
 	   			}
 			}
 		}
@@ -42,18 +45,21 @@ public class HorarioCarrera extends Horario{
 			}
 		}	
 		this.cantidadAparicionPorModulo.add(this.posicion.size()-countAux);
-	
+		
 	}
 	
 
 	public ArrayList<Asignatura> listaAsignaturas (String palabraBuscada){
 		ArrayList <Asignatura> listaAsignatura = new ArrayList <Asignatura>();
 		this.separarAsignaturas(palabraBuscada);
-		for(int i=0; i<this.cantidadAparicionPorModulo.size(); i++) {		//cantidad de asignaturas
-			listaAsignatura.add(asignaturaEncontrada(i, this.cantidadAparicionPorModulo.get(i))); 
+		if(this.encuentro) {
+			for(int i=0; i<this.cantidadAparicionPorModulo.size(); i++) {		//cantidad de asignaturas
+				listaAsignatura.add(asignaturaEncontrada(i, this.cantidadAparicionPorModulo.get(i))); 
+			}
 		}
 		return listaAsignatura;
 	}
+	
 	
 	 private Asignatura asignaturaEncontrada (int posicionEntreLosModulos,int cantidadHorarioDeEstaAsignatura) {
 		 Asignatura asignatura;
