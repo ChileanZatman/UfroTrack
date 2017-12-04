@@ -16,6 +16,8 @@ public class HorarioAlumno extends Horario{
 	    this.tablaNombre = new String[5][10];
 	    this.tablaCodigo = new String[5][10];
 	    this.tablaSala = new String[5][10];
+            llenarNombre();
+            llenarCodigo();
 	}
 	
 	private void llenarNombre() {
@@ -78,6 +80,12 @@ public class HorarioAlumno extends Horario{
 		String rut=this.tomarCelda(2, 1);
 		return rut;
 	}
+        public String[][] getNombre(){
+            return tablaNombre;
+        }
+        public String[][] getCodigo(){
+            return tablaCodigo;
+        }
 	
 	
 }
