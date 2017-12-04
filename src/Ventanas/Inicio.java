@@ -21,7 +21,7 @@ public class Inicio  extends JFrame implements ActionListener {
  
     public Inicio() {
         
-        super("UfroTrack");
+       super("UfroTrack");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//finaliza el programa cuando se da click en la X
         this.setSize(900, 500);//configurando tamaño de la ventana
         this.setResizable(false);
@@ -70,7 +70,51 @@ public class Inicio  extends JFrame implements ActionListener {
         textFieldNombre.setBounds(110+60, 10, 100, 25);
         textFieldNombre.setText("");
         this.add(textFieldNombre);
-        
+        labelClase = new JLabel("Hora");
+        labelClase.setText("Hora");
+        labelClase.setBounds(10, 60, 100, 25);
+        this.add(labelClase);
+        labelClase = new JLabel("8:30");
+        labelClase.setText("8:30");
+        labelClase.setBounds(10, 100, 100, 25);
+        this.add(labelClase);
+        labelClase = new JLabel("9:40");
+        labelClase.setText("9:40");
+        labelClase.setBounds(10, 125, 100, 25);
+        this.add(labelClase);
+        labelClase = new JLabel("10:50");
+        labelClase.setText("10:50");
+        labelClase.setBounds(10, 175, 100, 25);
+        this.add(labelClase);
+        labelClase = new JLabel("12:00");
+        labelClase.setText("12:00");
+        labelClase.setBounds(10, 200, 100, 25);
+        this.add(labelClase);
+        labelClase = new JLabel("14:30");
+        labelClase.setText("14:30");
+        labelClase.setBounds(10, 250, 100, 25);
+        this.add(labelClase);
+        labelClase = new JLabel("15:40");
+        labelClase.setText("15:40");
+        labelClase.setBounds(10, 275, 100, 25);
+        this.add(labelClase);
+        labelClase = new JLabel("16:50");
+        labelClase.setText("16:50");
+        labelClase.setBounds(10, 325, 100, 25);
+        this.add(labelClase);
+        labelClase = new JLabel("18:00");
+        labelClase.setText("18:00");
+        labelClase.setBounds(10, 350, 100, 25);
+        this.add(labelClase);
+        labelClase = new JLabel("19:10");
+        labelClase.setText("19:10");
+        labelClase.setBounds(10, 400, 100, 25);
+        this.add(labelClase);
+        labelClase = new JLabel("20:20");
+        labelClase.setText("20:20");
+        labelClase.setBounds(10, 425, 100, 25);
+        this.add(labelClase);
+     
         
         
         //JButtons
