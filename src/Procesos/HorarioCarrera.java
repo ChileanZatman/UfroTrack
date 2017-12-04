@@ -63,13 +63,13 @@ public class HorarioCarrera extends Horario{
 		 ArrayList <String> sala = new ArrayList<String>();
 		 
 		 int posicionInicial=posicionInicial(posicionEntreLosModulos);		//falta determinar eso con un void 
-		 profesor=	this.tomarCelda(posicionInicial+1, 3);
-		 codigo=	this.tomarCelda(posicionInicial+1, 0);
-		 nombre=	this.tomarCelda(posicionInicial+1, 1);
+		 profesor=	this.tomarCelda(posicionInicial, 3);
+		 codigo=	this.tomarCelda(posicionInicial, 0);
+		 nombre=	this.tomarCelda(posicionInicial, 1);
 		 
 		 for(int i=0;i<cantidadHorarioDeEstaAsignatura;i++) {
-			 horario.add(this.tomarCelda(posicionInicial+i+1, 2));
-			 sala.add(this.tomarCelda(posicionInicial+i+1, 4));
+			 horario.add(this.tomarCelda(posicionInicial+i, 2));
+			 sala.add(this.tomarCelda(posicionInicial+i, 4));
 		 }
 		 
 		 asignatura = new Asignatura(profesor, codigo, nombre, horario, sala);
