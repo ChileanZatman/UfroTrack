@@ -1,21 +1,20 @@
 
 package Ventanas;
 
+import Procesos.HorarioAlumno;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
 
 
 
-/**
- *
- * @author sebas
- */
+
 public class Inicio  extends JFrame implements ActionListener {
- 
- private JLabel labelClase;
- private JTextField textFieldRut, textFieldBuscar, textFieldNombre, textFieldRuta;
- private JButton botonBuscar, bt1, bt2, bt3,  bt4,  bt5, bt6, bt7, bt8, bt9, bt10, bt11, bt12, bt13, bt14, bt15, bt16, bt17,
+        private String [][] tablaNombre;
+        private String [][] tablaCodigo;
+        private JLabel labelClase;
+        private JTextField textFieldRut, textFieldBuscar, textFieldNombre, textFieldRuta;
+        private JButton botonBuscar, bt1, bt2, bt3,  bt4,  bt5, bt6, bt7, bt8, bt9, bt10, bt11, bt12, bt13, bt14, bt15, bt16, bt17,
                  bt18, bt19,bt20, bt21, bt22, bt23, bt24, bt25, bt26,bt27, bt28, bt29, bt30, bt31, bt32, bt33,
                  bt34, bt35, bt36, bt37, bt38, bt39, bt40, bt41,bt42,bt43,bt44,bt45,bt46,bt47,bt48,bt49,bt50, botonCargar;
  
@@ -25,6 +24,8 @@ public class Inicio  extends JFrame implements ActionListener {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//finaliza el programa cuando se da click en la X
         this.setSize(900, 500);//configurando tamaño de la ventana
         this.setResizable(false);
+        
+        
         //Labels
         labelClase = new JLabel("Rut");
         labelClase.setText("Rut");
@@ -118,7 +119,7 @@ public class Inicio  extends JFrame implements ActionListener {
         
         
         //JButtons
-        
+        //lunes
         bt1 = new JButton("Terminar");
         bt1.setBounds(0+60, 100, 100, 25);
         this.add(bt1);
@@ -169,6 +170,7 @@ public class Inicio  extends JFrame implements ActionListener {
         this.add(bt10);
         setLayout(null);
         bt10.addActionListener(this);
+       // martes
         bt11 = new JButton("Terminar");
         bt11.setBounds(100+60, 100, 100, 25);
         this.add(bt11);
@@ -224,6 +226,7 @@ public class Inicio  extends JFrame implements ActionListener {
         this.add(bt21);
         setLayout(null);
         bt21.addActionListener(this);
+       //Miercoles
         bt22 = new JButton("Terminar");
         bt22.setBounds(200+60, 125, 100, 25);
         this.add(bt22);
@@ -269,6 +272,7 @@ public class Inicio  extends JFrame implements ActionListener {
         this.add(bt30);
         setLayout(null);
         bt30.addActionListener(this);
+        //Jueves
         bt31 = new JButton("Terminar");
         bt31.setBounds(300+60, 100, 100, 25);
         this.add(bt31);
@@ -319,6 +323,7 @@ public class Inicio  extends JFrame implements ActionListener {
         this.add(bt40);
         setLayout(null);
         bt40.addActionListener(this);
+       //Viernes
         bt41 = new JButton("Terminar");
         bt41.setBounds(400+60, 100, 100, 25);
         this.add(bt41);

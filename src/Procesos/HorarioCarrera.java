@@ -3,7 +3,6 @@ package Procesos;
 import java.util.ArrayList;
 
 import Archivos.GestorArchivo;
-import Ventanas.Inicio;
 
 public class HorarioCarrera extends Horario{
 	
