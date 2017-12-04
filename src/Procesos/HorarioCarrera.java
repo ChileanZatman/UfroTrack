@@ -55,9 +55,15 @@ public class HorarioCarrera extends Horario{
 		this.separarAsignaturas(palabraBuscada);
 		if(this.encuentro) {
 			int posicionInicial=this.posicion.get(0);
+			int count=0; 
 			for(int i=0; i<this.cantidadAparicionPorModulo.size(); i++) {		//cantidad de asignatura
+				count = count+this.cantidadAparicionPorModulo.get(i);
 				listaAsignatura.add(asignaturaEncontrada(posicionInicial, i, this.cantidadAparicionPorModulo.get(i))); 
-				posicionInicial=posicionInicial+this.cantidadAparicionPorModulo.get(i);
+				//posicionInicial=posicionInicial+this.cantidadAparicionPorModulo.get(i);
+				if(i<this.cantidadAparicionPorModulo.size()-1) {
+					posicionInicial=this.posicion.get(count);
+				}
+				
 			}
 		}
 		return listaAsignatura;
