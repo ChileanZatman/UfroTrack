@@ -42,10 +42,7 @@ public class HorarioCarrera extends Horario{
 			}
 		}	
 		this.cantidadAparicionPorModulo.add(this.posicion.size()-countAux);
-		
-		for(int i=0; i<this.cantidadAparicionPorModulo.size();i++) {
-			System.out.println(i+"aaaa:"+cantidadAparicionPorModulo.get(i));
-		}
+	
 	}
 	
 
@@ -85,7 +82,7 @@ public class HorarioCarrera extends Horario{
 		int contador=0;
 		if(posicionEntreLosModulos>0) {
 			for(int j=0; j<posicionEntreLosModulos; j++) {
-				contador=contador+this.cantidadAparicionPorModulo.get(j);
+				contador=contador+this.cantidadAparicionPorModulo.get(j)+1;
 			}
 		}else {
 			return 1;
