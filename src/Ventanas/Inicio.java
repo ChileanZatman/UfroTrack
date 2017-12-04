@@ -72,15 +72,7 @@ public class Inicio  extends JFrame implements ActionListener {
         textFieldNombre.setText("");
         this.add(textFieldNombre);
         
-        //ComboBox
-        String[] opc2 = {};
-        comboCategoria = new JComboBox(opc2);
-        comboCategoria.setBounds(700, 110, 100, 25);
-        comboCategoria.addItem("Codigo");
-        comboCategoria.addItem("Profesor");
-        comboCategoria.addActionListener(this);
-        this.setLayout(null);
-        this.add(comboCategoria);
+
         
         //JButtons
         
