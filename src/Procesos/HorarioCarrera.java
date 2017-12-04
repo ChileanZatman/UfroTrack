@@ -21,7 +21,7 @@ public class HorarioCarrera extends Horario{
 	private void ocurrencias (String palabraBuscada) {
 		for (int y=0; y<this.excell.length; y++) {
 			for(int x=1; x<excell[0].length;x++) {
-				if (this.tomarCelda(x,y).contains(palabraBuscada)) {
+				if (this.tomarCelda(x,y).equalsIgnoreCase(palabraBuscada)) {
 					this.posicion.add(x);
 	   			}
 			}
@@ -33,7 +33,7 @@ public class HorarioCarrera extends Horario{
 		int count=0;
 		int countAux=0;
 		for(int x=0; x<(this.posicion.size())-1;x++) {
-			if(this.tomarCelda(this.posicion.get(x), 0).equals(this.tomarCelda(this.posicion.get(x)+1, 0))) {
+			if(this.tomarCelda(this.posicion.get(x), 0).equalsIgnoreCase(this.tomarCelda(this.posicion.get(x)+1, 0))) {
 				count++;
 				countAux++;
 			}else {
@@ -42,6 +42,10 @@ public class HorarioCarrera extends Horario{
 			}
 		}	
 		this.cantidadAparicionPorModulo.add(this.posicion.size()-countAux);
+		
+		for(int i=0; i<this.cantidadAparicionPorModulo.size();i++) {
+			System.out.println(i+"aaaa:"+cantidadAparicionPorModulo.get(i));
+		}
 	}
 	
 
@@ -82,9 +86,9 @@ public class HorarioCarrera extends Horario{
 		if(posicionEntreLosModulos>0) {
 			for(int j=0; j<posicionEntreLosModulos; j++) {
 				contador=contador+this.cantidadAparicionPorModulo.get(j);
-						}
+			}
 		}else {
-			return 0;
+			return 1;
 		}
 		return contador;
 	}
