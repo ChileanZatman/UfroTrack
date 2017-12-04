@@ -23,7 +23,6 @@ public class HorarioCarrera extends Horario{
 		for (int y=0; y<this.excell.length; y++) {
 			for(int x=1; x<excell[0].length;x++) {
 				if (this.tomarCelda(x,y).contains(palabraBuscada)) {
-					System.out.println("ENCONTRADO EN X: "+x);			//PRUEBAAAAA
 					this.posicion.add(x);
 					this.encuentro=true;
 	   			}
@@ -55,17 +54,17 @@ public class HorarioCarrera extends Horario{
 		ArrayList <Asignatura> listaAsignatura = new ArrayList <Asignatura>();
 		this.separarAsignaturas(palabraBuscada);
 		if(this.encuentro) {
-			int primeraPosicion=this.posicion.get(0);
-			for(int i=0; i<this.cantidadAparicionPorModulo.size(); i++) {		//cantidad de asignaturas
-				primeraPosicion=primeraPosicion+this.cantidadAparicionPorModulo.get(i)-2;
-				listaAsignatura.add(asignaturaEncontrada(primeraPosicion ,i, this.cantidadAparicionPorModulo.get(i))); 
+			int posicionInicial=this.posicion.get(0);
+			for(int i=0; i<this.cantidadAparicionPorModulo.size(); i++) {		//cantidad de asignatura
+				listaAsignatura.add(asignaturaEncontrada(posicionInicial, i, this.cantidadAparicionPorModulo.get(i))); 
+				posicionInicial=posicionInicial+this.cantidadAparicionPorModulo.get(i);
 			}
 		}
 		return listaAsignatura;
 	}
 	
 	
-	 private Asignatura asignaturaEncontrada (int primeraPosicion,int posicionEntreLosModulos,int cantidadHorarioDeEstaAsignatura) {
+	 private Asignatura asignaturaEncontrada (int primeraPosicion, int posicionEntreLosModulos,int cantidadHorarioDeEstaAsignatura) {
 		 Asignatura asignatura;
 		 String profesor;
 		 String codigo;
