@@ -14,16 +14,16 @@ import javax.swing.*;
 public class Inicio  extends JFrame implements ActionListener {
  
  private JLabel labelClase;
- private JTextField textFieldRut, textFieldBuscar, textFieldNombre;
+ private JTextField textFieldRut, textFieldBuscar, textFieldNombre, textFieldRuta;
  private JButton botonBuscar, bt1, bt2, bt3,  bt4,  bt5, bt6, bt7, bt8, bt9, bt10, bt11, bt12, bt13, bt14, bt15, bt16, bt17,
                  bt18, bt19,bt20, bt21, bt22, bt23, bt24, bt25, bt26,bt27, bt28, bt29, bt30, bt31, bt32, bt33,
-                 bt34, bt35, bt36, bt37, bt38, bt39, bt40, bt41,bt42,bt43,bt44,bt45,bt46,bt47,bt48,bt49,bt50;
+                 bt34, bt35, bt36, bt37, bt38, bt39, bt40, bt41,bt42,bt43,bt44,bt45,bt46,bt47,bt48,bt49,bt50, botonCargar;
  
     public Inicio() {
         
         super("UfroTrack");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//finaliza el programa cuando se da click en la X
-        this.setSize(800, 500);//configurando tamaño de la ventana
+        this.setSize(850, 500);//configurando tamaño de la ventana
         this.setResizable(false);
         //Labels
         labelClase = new JLabel("Rut");
@@ -332,6 +332,20 @@ public class Inicio  extends JFrame implements ActionListener {
         setLayout(null);
         botonBuscar.addActionListener(this);
         
+        //Cargar horario
+        labelClase = new JLabel("Ruta");
+        labelClase.setText("Ruta");
+        labelClase.setBounds(600, 225, 100, 25);
+        this.add(labelClase);
+        textFieldRuta = new JTextField();
+        textFieldRuta.setBounds(600, 250, 200, 25);
+        textFieldRuta.setText("");
+        this.add(textFieldRuta);
+        botonCargar = new JButton("Cargar");
+        botonCargar.setBounds(600, 275, 200, 25);
+        this.add(botonCargar);
+        setLayout(null);
+        botonCargar.addActionListener(this);
         
         
     }
