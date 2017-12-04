@@ -1,10 +1,15 @@
 
 package Ventanas;
 
+import Archivos.GestorArchivo;
 import Procesos.HorarioAlumno;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 import javax.swing.*;
+import javax.swing.filechooser.FileFilter;
+import javax.swing.filechooser.FileNameExtensionFilter;
+import javax.swing.filechooser.FileSystemView;
 
 
 
@@ -20,12 +25,18 @@ public class Inicio  extends JFrame implements ActionListener {
  
     public Inicio() {
         
-       super("UfroTrack");
+        super("UfroTrack");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//finaliza el programa cuando se da click en la X
         this.setSize(900, 500);//configurando tamaño de la ventana
         this.setResizable(false);
+        //
         
-        
+        GestorArchivo gestor = new GestorArchivo();
+        //
+        if(gestor.checkFile()!=true){
+            FileChooser();
+        }
+        HorarioAlumno horario =initHorario(gestor);
         //Labels
         labelClase = new JLabel("Rut");
         labelClase.setText("Rut");
@@ -60,7 +71,7 @@ public class Inicio  extends JFrame implements ActionListener {
         textFieldRut = new JTextField();
         textFieldRut.setEditable(false);
         textFieldRut.setBounds(650, 10, 100, 25);
-        textFieldRut.setText("");
+        textFieldRut.setText(horario.getRut());
         this.add(textFieldRut);
         textFieldBuscar = new JTextField();
         textFieldBuscar.setBounds(600+60, 110, 100, 25);
@@ -69,53 +80,9 @@ public class Inicio  extends JFrame implements ActionListener {
         textFieldNombre = new JTextField();
         textFieldNombre.setEditable(false);
         textFieldNombre.setBounds(110+60, 10, 100, 25);
-        textFieldNombre.setText("");
+        textFieldNombre.setText(horario.getNombreAlumno());
         this.add(textFieldNombre);
-        labelClase = new JLabel("Hora");
-        labelClase.setText("Hora");
-        labelClase.setBounds(10, 60, 100, 25);
-        this.add(labelClase);
-        labelClase = new JLabel("8:30");
-        labelClase.setText("8:30");
-        labelClase.setBounds(10, 100, 100, 25);
-        this.add(labelClase);
-        labelClase = new JLabel("9:40");
-        labelClase.setText("9:40");
-        labelClase.setBounds(10, 125, 100, 25);
-        this.add(labelClase);
-        labelClase = new JLabel("10:50");
-        labelClase.setText("10:50");
-        labelClase.setBounds(10, 175, 100, 25);
-        this.add(labelClase);
-        labelClase = new JLabel("12:00");
-        labelClase.setText("12:00");
-        labelClase.setBounds(10, 200, 100, 25);
-        this.add(labelClase);
-        labelClase = new JLabel("14:30");
-        labelClase.setText("14:30");
-        labelClase.setBounds(10, 250, 100, 25);
-        this.add(labelClase);
-        labelClase = new JLabel("15:40");
-        labelClase.setText("15:40");
-        labelClase.setBounds(10, 275, 100, 25);
-        this.add(labelClase);
-        labelClase = new JLabel("16:50");
-        labelClase.setText("16:50");
-        labelClase.setBounds(10, 325, 100, 25);
-        this.add(labelClase);
-        labelClase = new JLabel("18:00");
-        labelClase.setText("18:00");
-        labelClase.setBounds(10, 350, 100, 25);
-        this.add(labelClase);
-        labelClase = new JLabel("19:10");
-        labelClase.setText("19:10");
-        labelClase.setBounds(10, 400, 100, 25);
-        this.add(labelClase);
-        labelClase = new JLabel("20:20");
-        labelClase.setText("20:20");
-        labelClase.setBounds(10, 425, 100, 25);
-        this.add(labelClase);
-     
+        
         
         
         //JButtons
@@ -382,15 +349,16 @@ public class Inicio  extends JFrame implements ActionListener {
         botonBuscar.addActionListener(this);
         
         //Cargar horario
-        labelClase = new JLabel("Ruta");
+        labelClase = new JLabel();
         labelClase.setText("Ruta");
         labelClase.setBounds(630, 225, 100, 25);
         this.add(labelClase);
         textFieldRuta = new JTextField();
         textFieldRuta.setBounds(630, 250, 200, 25);
-        textFieldRuta.setText("");
+        textFieldRuta.setText(gestor.getAlumno());
+        textFieldRuta.setEnabled(false);
         this.add(textFieldRuta);
-        botonCargar = new JButton("Cargar");
+        botonCargar = new JButton("Cargar excell");
         botonCargar.setBounds(630, 275, 200, 25);
         this.add(botonCargar);
         setLayout(null);
@@ -568,4 +536,37 @@ public class Inicio  extends JFrame implements ActionListener {
         }
     }
     
-}
+    private void FileChooser(){
+        JFileChooser jfc = new JFileChooser(FileSystemView.getFileSystemView().getHomeDirectory());
+	jfc.setDialogTitle("Elije la ruta de 'Horario Alumno.xlsx'");
+	jfc.setFileSelectionMode(JFileChooser.FILES_ONLY);
+        FileFilter filter = new FileNameExtensionFilter(".xlsx","xlsx");
+        jfc.addChoosableFileFilter(filter); 
+        jfc.setFileFilter(filter);
+        int returnValue = jfc.showOpenDialog(null);
+		
+
+            if (returnValue == JFileChooser.APPROVE_OPTION) {
+			File selectedFile = jfc.getSelectedFile();
+			GestorArchivo gestor = new GestorArchivo();
+                        gestor.setAlumno(selectedFile.getAbsolutePath());
+		}
+    
+    }
+    
+    private HorarioAlumno initHorario(GestorArchivo gestor){
+            HorarioAlumno horario = null;
+            try{
+                horario = new HorarioAlumno();
+                
+            }catch(NullPointerException e){
+                JOptionPane.showMessageDialog(null, "Formato de archivo incorrecto \n Elija nuevo archivo");
+                gestor.deleteFile();
+                FileChooser();
+                initHorario(gestor);
+            }
+            return horario;
+        }
+    }
+    
+
