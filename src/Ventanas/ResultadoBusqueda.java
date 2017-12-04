@@ -16,7 +16,7 @@ public class ResultadoBusqueda extends JFrame implements ActionListener {
     private JButton botonVolver, botonSeleccionar;
     private InfoModulo info;
     
-    public ResultadoBusqueda(boolean criterio, String palabra) {
+    public ResultadoBusqueda( String palabra) {
         super("Resultado");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(500, 650);
