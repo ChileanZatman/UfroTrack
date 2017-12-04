@@ -53,24 +53,29 @@ abstract class Horario{
 
                                case XSSFCell.CELL_TYPE_FORMULA:
                                    excell[r][c] = cell.getCellFormula();
+                                   System.out.println(excell[r][c]);
                                    break;
 
                                case XSSFCell.CELL_TYPE_NUMERIC:
                                    excell[r][c] = ""
                                         + cell.getNumericCellValue();
+                                   System.out.println(excell[r][c]);
                                    break;
 
                                case XSSFCell.CELL_TYPE_STRING:
                                    excell[r][c] = ""
                                         + cell.getStringCellValue();
+                                   System.out.println(excell[r][c]);
                                    break;
 
                                case XSSFCell.CELL_TYPE_BLANK:
-                                  excell[r][c] = "[BLANK]";
+                                  excell[r][c] = "-----";
+                                  System.out.println(excell[r][c]);
                                   break;
 
                                case XSSFCell.CELL_TYPE_ERROR:
                                   excell[r][c] = ""+cell.getErrorCellValue();
+                                  System.out.println(excell[r][c]);
                                 break;
                             default:
                                }

@@ -45,9 +45,9 @@ public class Asignatura {
     public String getHorarios(){
         String texto = null;
         for (int i = 0; i < this.horarios.size(); i++) {
-              if(texto==null) texto =salas.get(i)+""+"\n"+toHorario(i)+"\n";
+              if(texto==null) texto =salas.get(i)+""+"\n"+toHorario(i);
               else if(texto!=null){ 
-                  texto= texto+salas.get(i)+"\n"+toHorario(i)+"\n";
+                  texto= texto+salas.get(i)+"\n"+toHorario(i);
               }
               
               }

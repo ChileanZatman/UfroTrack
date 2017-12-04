@@ -17,23 +17,26 @@ public class HorarioAlumno extends Horario{
 	    this.tablaCodigo = new String[5][10];
 	    this.tablaSala = new String[5][10];
             llenarNombre();
-            llenarCodigo();
+            llenarSala();
+         
 	}
 	
 	private void llenarNombre() {
 		int countj=0;
 		int counti=0;
-		for(int y=7; y<this.excell.length-1; y=y+3) {
-			countj++;
-			for(int x=1; y<this.excell[0].length; x++) {
-				counti++;
-				if(y==19) {
-					countj--;
-					counti--;
-				}else { // linea de horario de almuerzo
-					this.tablaNombre[countj][counti]=this.tomarCelda(x, y);
+		
+		for(int y=7; y<this.excell.length; y=y+3) {
+			for(int x=1; x<this.excell[0].length; x++) {
+				if(y==19) {			// linea de horario de almuerzo
+					y=y+3;
+				}else if(x!=6){
+					System.out.println("x "+x+" y"+y);
+					this.tablaNombre[counti][countj]=this.tomarCelda(x, y);
+					counti++;
 				}
 			}
+			counti=0;
+			countj++;
 		}
 	}
 	
@@ -85,6 +88,9 @@ public class HorarioAlumno extends Horario{
         }
         public String[][] getCodigo(){
             return tablaCodigo;
+        }
+        public String[][] getSala(){
+            return tablaSala;
         }
 	
 	
