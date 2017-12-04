@@ -17,7 +17,11 @@ public class HorarioAlumno extends Horario{
 	    this.tablaCodigo = new String[5][10];
 	    this.tablaSala = new String[5][10];
             llenarNombre();
+<<<<<<< HEAD
             llenarSala();
+=======
+           // llenarCodigo();
+>>>>>>> origin/master
          
 	}
 	

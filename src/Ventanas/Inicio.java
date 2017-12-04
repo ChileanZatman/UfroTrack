@@ -1,4 +1,5 @@
 
+
 package Ventanas;
 
 import Archivos.GestorArchivo;
@@ -37,6 +38,7 @@ public class Inicio  extends JFrame implements ActionListener {
             FileChooser();
         }
         HorarioAlumno horario =initHorario(gestor);
+<<<<<<< HEAD
         tablaNombre=horario.getNombre();
         //Labels
         labelClase = new JLabel("Hora");
@@ -83,6 +85,9 @@ public class Inicio  extends JFrame implements ActionListener {
         labelClase.setText("20:20");
         labelClase.setBounds(10, 425, 100, 25);
         this.add(labelClase);
+=======
+        //Labels
+>>>>>>> origin/master
         labelClase = new JLabel();
         labelClase.setText("N° Matricula");
         labelClase.setBounds(580, 10, 100, 25);
@@ -691,7 +696,11 @@ public class Inicio  extends JFrame implements ActionListener {
     
     private void FileChooser(){
         JFileChooser jfc = new JFileChooser(FileSystemView.getFileSystemView().getHomeDirectory());
+<<<<<<< HEAD
 	jfc.setDialogTitle("Elije la ruta de 'horario_academico.xlsx'");
+=======
+	jfc.setDialogTitle("Elije la ruta de 'Horario Alumno.xlsx'");
+>>>>>>> origin/master
 	jfc.setFileSelectionMode(JFileChooser.FILES_ONLY);
         FileFilter filter = new FileNameExtensionFilter(".xlsx","xlsx");
         jfc.addChoosableFileFilter(filter); 
@@ -701,6 +710,7 @@ public class Inicio  extends JFrame implements ActionListener {
 
             if (returnValue == JFileChooser.APPROVE_OPTION) {
 			File selectedFile = jfc.getSelectedFile();
+<<<<<<< HEAD
                         if(selectedFile.getName().equals("horario_academico.xlsx")){
 			GestorArchivo gestor = new GestorArchivo();
                         gestor.setAlumno(selectedFile.getAbsolutePath());}
@@ -708,6 +718,10 @@ public class Inicio  extends JFrame implements ActionListener {
                             JOptionPane.showMessageDialog(null, "Nombre del archivo incorrecto, ingrese 'horario_academico.xlsx'");
                             FileChooser();
                         }
+=======
+			GestorArchivo gestor = new GestorArchivo();
+                        gestor.setAlumno(selectedFile.getAbsolutePath());
+>>>>>>> origin/master
 		}
     
     }

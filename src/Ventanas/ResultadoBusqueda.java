@@ -54,11 +54,15 @@ public class ResultadoBusqueda extends JFrame implements ActionListener {
             Inicio regreso = new Inicio();
             regreso.setVisible(true);
         }
-        if(ae.getSource()==botonSeleccionar){
+       if(ae.getSource()==botonSeleccionar){
             System.out.println(list.getSelectedIndex());
-            info = new InfoModulo(resultados.get(list.getSelectedIndex()));
-            info.setVisible(true);
-        }
+            if(list.getSelectedIndex() == -1){
+                Component frame = null;
+                JOptionPane.showMessageDialog(frame, "No ha seleccionado nada (opcion invalida)");
+            }else{
+                info = new InfoModulo(resultados.get(list.getSelectedIndex()));
+                info.setVisible(true);
+            }
     }
     public void llenarLista(){
         model.removeAllElements();
