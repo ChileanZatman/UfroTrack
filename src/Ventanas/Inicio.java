@@ -16,10 +16,6 @@ import javax.swing.filechooser.FileSystemView;
 
 public class Inicio  extends JFrame implements ActionListener {
         private String [][] tablaNombre;
-<<<<<<< HEAD
-=======
-        private String [][] tablaSala;
->>>>>>> origin/master
         private JLabel labelClase;
         private JTextField textFieldRut, textFieldBuscar, textFieldNombre, textFieldRuta;
         private JButton botonBuscar, bt1, bt2, bt3,  bt4,  bt5, bt6, bt7, bt8, bt9, bt10, bt11, bt12, bt13, bt14, bt15, bt16, bt17,
@@ -41,7 +37,6 @@ public class Inicio  extends JFrame implements ActionListener {
         }
         HorarioAlumno horario =initHorario(gestor);
         tablaNombre=horario.getNombre();
-	tablaSala=horario.getSala();
         //Labels
         labelClase = new JLabel("Hora");
         labelClase.setText("Hora");
@@ -414,7 +409,6 @@ public class Inicio  extends JFrame implements ActionListener {
         botonCargar.addActionListener(this);
 	    
 	//ToolTips
-<<<<<<< HEAD
         bt1.setToolTipText(tablaNombre[0][0]);
         bt2.setToolTipText(tablaNombre[0][1]);
         bt3.setToolTipText(tablaNombre[0][2]);
@@ -465,58 +459,6 @@ public class Inicio  extends JFrame implements ActionListener {
         bt48.setToolTipText(tablaNombre[4][7]);
         bt49.setToolTipText(tablaNombre[4][8]);
         bt50.setToolTipText(tablaNombre[4][9]);
-=======
-        bt1.setToolTipText(tablaNombre[0][0]+"\n"+tablaSala[0][0]);
-        bt2.setToolTipText(tablaNombre[0][1]+"\n"+tablaSala[0][1]);
-        bt3.setToolTipText(tablaNombre[0][2]+"\n"+tablaSala[0][2]);
-        bt4.setToolTipText(tablaNombre[0][3]+"\n"+tablaSala[0][3]);
-        bt5.setToolTipText(tablaNombre[0][4]+"\n"+tablaSala[0][4]);
-        bt6.setToolTipText(tablaNombre[0][5]+"\n"+tablaSala[0][5]);
-        bt7.setToolTipText(tablaNombre[0][6]+"\n"+tablaSala[0][6]);
-        bt8.setToolTipText(tablaNombre[0][7]+"\n"+tablaSala[0][7]);
-        bt9.setToolTipText(tablaNombre[0][8]+"\n"+tablaSala[0][8]);
-        bt10.setToolTipText(tablaNombre[0][9]+"\n"+tablaSala[0][9]);
-        bt11.setToolTipText(tablaNombre[1][0]+"\n"+tablaSala[1][0]);
-        bt12.setToolTipText(tablaNombre[1][1]+"\n"+tablaSala[1][1]);
-        bt13.setToolTipText(tablaNombre[1][2]+"\n"+tablaSala[1][2]);
-        bt14.setToolTipText(tablaNombre[1][3]+"\n"+tablaSala[1][3]);
-        bt15.setToolTipText(tablaNombre[1][4]+"\n"+tablaSala[1][4]);
-        bt16.setToolTipText(tablaNombre[1][5]+"\n"+tablaSala[1][5]);
-        bt17.setToolTipText(tablaNombre[1][6]+"\n"+tablaSala[1][6]);
-        bt18.setToolTipText(tablaNombre[1][7]+"\n"+tablaSala[1][7]);
-        bt19.setToolTipText(tablaNombre[1][8]+"\n"+tablaSala[1][8]);
-        bt20.setToolTipText(tablaNombre[1][9]+"\n"+tablaSala[1][9]);
-        bt21.setToolTipText(tablaNombre[2][0]+"\n"+tablaSala[2][0]);
-        bt22.setToolTipText(tablaNombre[2][1]+"\n"+tablaSala[2][1]);
-        bt23.setToolTipText(tablaNombre[2][2]+"\n"+tablaSala[2][2]);
-        bt24.setToolTipText(tablaNombre[2][3]+"\n"+tablaSala[2][3]);
-        bt25.setToolTipText(tablaNombre[2][4]+"\n"+tablaSala[2][4]);
-        bt26.setToolTipText(tablaNombre[2][5]+"\n"+tablaSala[2][5]);
-        bt27.setToolTipText(tablaNombre[2][6]+"\n"+tablaSala[2][6]);
-        bt28.setToolTipText(tablaNombre[2][7]+"\n"+tablaSala[2][7]);
-        bt29.setToolTipText(tablaNombre[2][8]+"\n"+tablaSala[2][8]);
-        bt30.setToolTipText(tablaNombre[2][9]+"\n"+tablaSala[2][9]);
-        bt31.setToolTipText(tablaNombre[3][0]+"\n"+tablaSala[3][0]);
-        bt32.setToolTipText(tablaNombre[3][1]+"\n"+tablaSala[3][1]);
-        bt33.setToolTipText(tablaNombre[3][2]+"\n"+tablaSala[3][2]);
-        bt34.setToolTipText(tablaNombre[3][3]+"\n"+tablaSala[3][3]);
-        bt35.setToolTipText(tablaNombre[3][4]+"\n"+tablaSala[3][4]);
-        bt36.setToolTipText(tablaNombre[3][5]+"\n"+tablaSala[3][5]);
-        bt37.setToolTipText(tablaNombre[3][6]+"\n"+tablaSala[3][6]);
-        bt38.setToolTipText(tablaNombre[3][7]+"\n"+tablaSala[3][7]);
-        bt39.setToolTipText(tablaNombre[3][8]+"\n"+tablaSala[3][8]);
-        bt40.setToolTipText(tablaNombre[3][9]+"\n"+tablaSala[3][9]);
-        bt41.setToolTipText(tablaNombre[4][0]+"\n"+tablaSala[4][0]);
-        bt42.setToolTipText(tablaNombre[4][1]+"\n"+tablaSala[4][1]);
-        bt43.setToolTipText(tablaNombre[4][2]+"\n"+tablaSala[4][2]);
-        bt44.setToolTipText(tablaNombre[4][3]+"\n"+tablaSala[4][3]);
-        bt45.setToolTipText(tablaNombre[4][4]+"\n"+tablaSala[4][4]);
-        bt46.setToolTipText(tablaNombre[4][5]+"\n"+tablaSala[4][5]);
-        bt47.setToolTipText(tablaNombre[4][6]+"\n"+tablaSala[4][6]);
-        bt48.setToolTipText(tablaNombre[4][7]+"\n"+tablaSala[4][7]);
-        bt49.setToolTipText(tablaNombre[4][8]+"\n"+tablaSala[4][8]);
-        bt50.setToolTipText(tablaNombre[4][9]+"\n"+tablaSala[4][9]);
->>>>>>> origin/master
         
         
     }
